@@ -3,21 +3,28 @@ import style from "./searchComponents.module.css";
 import { useState } from "react";
 import { useEffect } from "react";
 
+const URL = "https://api.spoonacular.com/recipes/complexSearch";
+const API_KEY = "fa4cc8d3391e485cb718e3a28faeb183";
+
 export default function Search() {
   const [query, setQuery] = useState("pizza");
 
-  // Syntax
-  // useEffect(()=>{},[])
-
-  useEffect(()=>{
-    function demo() {
-      console.log('use of useEffect')
+  useEffect(() => {
+    async function fetchFood() {
+      const res = await fetch(`${URL}?query=${query}&apiKey=${API_KEY}`);
+      const data = await res.json();
+      console.log(data.results)
     }
-    demo();
-  },[query])
+    fetchFood()
+  }, [query]);
   return (
     <div>
-      <input className={style.search} type="text" value={query} onChange={(e) => setQuery(e.target.value)}/>
+      <input
+        className={style.search}
+        type="text"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+      />
     </div>
   );
 }
