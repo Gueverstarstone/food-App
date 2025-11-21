@@ -1,12 +1,20 @@
 import React from "react";
-import styles from './foodItem.module.css'
+import styles from "./foodItem.module.css";
 
-export default function FoodItem({ food }) {
+export default function FoodItem({ food, setFoodId }) {
   return (
-   <div className={styles.foodItem}>
+    <div className={styles.foodItem}>
       <img className={styles.foodImage} src={food.image} alt={food.title} />
       <h1 className={styles.foodTitle}>{food.title}</h1>
-      <button className={styles.viewButton}>View Recipe</button>
+      <button
+        onClick={() => {
+          console.log(food.id);
+          setFoodId(food.id)
+        }}
+        className={styles.viewButton}
+      >
+        View Recipe
+      </button>
     </div>
   );
 }
