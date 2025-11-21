@@ -1,4 +1,5 @@
 import React from "react";
+import FoodItem from "./FoodItem";
 
 export default function FoodList({ foodData }) {
   return (
@@ -6,7 +7,8 @@ export default function FoodList({ foodData }) {
       {/* //looping though foodData array */}
       {/* //food.title= property being accessed */}
       {foodData.map((food) => (
-        <h1>{food.title}</h1>
+        // have a key in every map used
+        <FoodItem key={food.id} food={food} />
       ))}
     </div>
   );
