@@ -1,9 +1,0 @@
-.search {
-  border: 1px solid #3d3838; /* visible border from the start */
-  margin: 20px;
-  border-radius: 5px;
-}
-
-.search:focus {
-  border-color: #3b82f6; /* optional: nicer focus color */
-}

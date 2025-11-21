@@ -1,4 +1,5 @@
 import React from "react";
+import styles from './foodItem.module.css'
 
 export default function FoodItem({ food }) {
   return (
