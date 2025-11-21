@@ -2,17 +2,20 @@ import { useState } from "react";
 import Search from "./components/Search";
 import FoodList from "./components/FoodList";
 import Nav from "./components/Nav";
-import './App.css'
+import "./App.css";
+import Container from "./components/Container";
 
 function App() {
   const [foodData, setFoodData] = useState([]);
 
   return (
     <>
-    <Nav />
+      <Nav />
       <Search foodData={foodData} setFoodData={setFoodData} />
+      <Container>
+        <FoodList foodData={foodData} />
+      </Container>
       {/* //pass foodData as props */}
-      <FoodList foodData={foodData}/>
     </>
   );
 }
