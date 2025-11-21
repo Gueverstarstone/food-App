@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Search from "./components/Search";
+import FoodList from "./components/FoodList";
 
 function App() {
   const [foodData, setFoodData] = useState([]);
@@ -7,11 +8,8 @@ function App() {
   return (
     <>
       <Search foodData={foodData} setFoodData={setFoodData} />
-      {/* //looping though foodData array */}
-      {/* //food.title= property being accessed */}
-      {foodData.map((food) => (
-        <h1>{food.title}</h1>
-      ))}
+      {/* //pass foodData as props */}
+      <FoodList foodData={foodData}/>
     </>
   );
 }
